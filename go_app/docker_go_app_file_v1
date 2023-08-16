@@ -1,0 +1,24 @@
+# Use the official Go image as the base image
+FROM golang:1.18
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the Go module files to the container
+COPY go.mod go.sum ./
+
+# Download and install dependencies
+RUN go mod download
+
+# Copy the application source code to the container
+COPY go_v1.go ./
+
+# Build the Go application
+RUN go build -o go_v1 .
+
+# Expose port 8080
+EXPOSE 8080
+
+# Command to run the application
+CMD ["./go_v1"]
+
