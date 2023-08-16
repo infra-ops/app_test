@@ -1,0 +1,7 @@
+version: '3'
+services:
+  app1:
+    image: nik786/go_app_v1:v1
+    container_name: app_v1
+    ports:
+      - "8080:8080"      

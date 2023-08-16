@@ -9,7 +9,7 @@ func main() {
 	router := gin.Default()
 
 	// Define a route to handle the "Hello, World!" message
-	router.GET("/v1", func(c *gin.Context) {
+	router.GET("/v2", func(c *gin.Context) {
 		c.String(200, "Welcome to US-EAST-1B")
 	})
 
