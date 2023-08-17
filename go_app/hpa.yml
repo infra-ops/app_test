@@ -1,0 +1,19 @@
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: vinz-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment  # Use the kind of your resource (Deployment, StatefulSet, etc.)
+    name: vinz-deployment  # Replace with the name of your Deployment
+  minReplicas: 1
+  maxReplicas: 10  # Adjust the maximum number of replicas as needed
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50  # Adjust the target CPU utilization percentage
+
